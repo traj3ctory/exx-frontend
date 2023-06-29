@@ -1,0 +1,203 @@
+section.dashboard_layout {
+  aside.left_nav {
+    width: $left_width;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: 10px 0 10px -5px rgba(185, 185, 185, 0.5);
+    transition: 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    padding-top: 1rem;
+
+    div.header {
+      img.logo {
+        margin-bottom: 1rem;
+      }
+      padding: 1rem;
+      height: 10%;
+    }
+
+    div.body {
+      height: 55%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-top: 2rem;
+      &::-webkit-scrollbar {
+        width: 8px; /* Adjust the width as needed */
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background-color: #f1f1f1; /* Set the background color */
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background-color: #888; /* Set the handle color */
+        border-radius: 8px; /* Set the border radius */
+      }
+
+      /* On hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #d9d9d9; /* Set the hover color */
+      }
+      ul {
+        li {
+          font-size: 1.15rem;
+          margin-bottom: 0.75rem;
+        }
+      }
+    }
+
+    div.footer {
+      height: 25%;
+      padding-top: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      ul {
+        padding-left: 0;
+        overflow: auto;
+        &::-webkit-scrollbar {
+          width: 8px; /* Adjust the width as needed */
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+          background-color: #f1f1f1; /* Set the background color */
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+          background-color: #888; /* Set the handle color */
+          border-radius: 8px; /* Set the border radius */
+        }
+
+        /* On hover */
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: #d9d9d9; /* Set the hover color */
+        }
+        li {
+          list-style-type: none;
+          padding: 0.5rem 1rem;
+          border-radius: 0.375rem;
+          margin-bottom: 1.125rem;
+          padding: 8px 12px;
+          cursor: pointer;
+          a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #475467;
+          }
+          &:hover,
+          &.active,
+          &:hover a,
+          &.active a {
+            color: $text_primary;
+            background-color: $secondary;
+          }
+        }
+      }
+      div.user_footer {
+        padding-top: 1rem;
+        border-top: 1px solid #eaecf0;
+        align-items: center;
+        display: flex;
+        gap: 0.5rem;
+        div.outer {
+          color: $font_primary;
+          div.inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h5 {
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 20px;
+            }
+          }
+          p {
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  div.wrapper {
+    position: relative;
+    background-color: #fafafa;
+    width: $main_width;
+    margin-left: $left_width;
+
+    header.header {
+      width: 100%;
+      height: $header_height;
+      position: sticky;
+      top: 1px;
+      nav {
+        z-index: 5;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        color: $font_color;
+        height: inherit;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        color: #475467;
+      }
+    }
+
+    main.content {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: calc($header_height / 3);
+      min-height: calc(100vh - $header_height * 1.75);
+      // height: 100%;
+      transition: all 1s ease-in-out;
+    }
+  }
+
+  @media (max-width: 768px) {
+    // Left Nav
+    aside.left_nav.left_expand {
+      width: 200px;
+      margin-left: 0;
+      left: 0;
+    }
+    aside.left_nav {
+      width: 0;
+      margin-left: -$left_width;
+      left: 0;
+    }
+    div.wrapper {
+      margin-bottom: $footer_height;
+      width: 100%;
+      margin-left: 0;
+
+      // header.header {
+      //   nav {
+      //   }
+      // }
+
+      // main.content,
+      // main.content.no_right_nav {
+      // }
+
+      div.overlay {
+        background-color: #00000081;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        min-width: 100%;
+        z-index: 3;
+      }
+    }
+  }
+}

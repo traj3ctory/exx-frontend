@@ -1,0 +1,48 @@
+/*
+ * ==============
+ * Animation for page entry 
+ * =============
+ */
+.page-enter {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*
+ * ==============
+ * Animation for page exit 
+ * =============
+ */
+.page-exit {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.rotate-icon {
+  -webkit-animation: rotate-infinite 2s linear infinite;
+  -moz-animation: rotate-infinite 2s linear infinite;
+  -o-animation: rotate-infinite 2s linear infinite;
+  animation: rotate-infinite 2s linear infinite;
+}
+
+@keyframes rotate-infinite {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
